@@ -177,6 +177,7 @@
             this.DgvDados.Name = "DgvDados";
             this.DgvDados.Size = new System.Drawing.Size(776, 150);
             this.DgvDados.TabIndex = 15;
+            this.DgvDados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvDados_CellDoubleClick);
             // 
             // TelaFornecedor
             // 

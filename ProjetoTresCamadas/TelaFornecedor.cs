@@ -64,5 +64,16 @@ namespace ProjetoTresCamadas
             MessageBox.Show(forn.Atualizar() ? "Atualizado com sucesso!" : "Não foi possivel atualizar!");
             CarregaTabela();
         }
+
+        private void DgvDados_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            forn.Id = Convert.ToInt32(DgvDados["forn_id", e.RowIndex].Value);
+            DataTable dt = forn.PesquisarId();
+            txtId.Text = dt.Rows[0]["forn_id"].ToString();
+            txtCnpj.Text = dt.Rows[0]["forn_cnpj"].ToString();
+            txtEmail.Text = dt.Rows[0]["forn_email"].ToString();
+            txtRazao.Text = dt.Rows[0]["forn_razao"].ToString();
+            txtTelefone.Text = dt.Rows[0]["forn_telefone"].ToString();
+        }
     }
 }

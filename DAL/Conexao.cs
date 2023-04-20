@@ -12,7 +12,7 @@ namespace DAL
     public class Conexao
     {
         static private string servidor = "localhost";
-        static private string banco = "bd_teste";
+        static private string banco = "bd_aula";
         static private string usuario = "root";
         static private string senha = "1234";
 

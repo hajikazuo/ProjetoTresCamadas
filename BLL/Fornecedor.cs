@@ -28,7 +28,7 @@ namespace BLL
         public bool Atualizar()
         {
             con = new Conexao();
-            string sql = $"update tb_fornecedor set forn_razao={Razao}, " +
+            string sql = $"update tb_fornecedor set forn_razao='{Razao}', " +
                 $"forn_cnpj='{Cnpj}', forn_telefone='{Telefone}', " +
                 $"forn_email='{Email}' where forn_id={Id}";
             return con.Executar(sql);
@@ -51,6 +51,23 @@ namespace BLL
                 dt = con.Retorna(sql);
                 return dt;
             }catch (Exception ex)
+            {
+                return new DataTable();
+            }
+        }
+
+        public DataTable PesquisarId()
+        {
+            try
+            {
+                con = new Conexao();
+                string sql = $"select * from tb_fornecedor where " + 
+                    $"forn_id={Id}";
+                DataTable dt = new DataTable();
+                dt = con.Retorna(sql);
+                return dt;
+            }
+            catch (Exception ex)
             {
                 return new DataTable();
             }
